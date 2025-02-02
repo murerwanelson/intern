@@ -10,15 +10,16 @@ def add_person(request):
             return redirect('person_list')
     else:
         form = PersonForm()
-    return render(request, 'add_person.html', {'form': form})
+    return render(request, 'zingsa_app/add_person.html', {'form': form})
 
 def delete_person(request, person_id):
     person = get_object_or_404(Person, id=person_id)
     if request.method == 'POST':
         person.delete()
         return redirect('person_list')
-    return render(request, 'confirm_delete.html', {'person': person})
+    return render(request, 'zingsa_app/confirm_delete.html', {'person': person})
 
 def person_list(request):
     persons = Person.objects.all()
-    return render(request, 'person_list.html', {'persons': persons})
+    return render(request, 'zingsa_app/person_list.html', {'persons': persons})
+
