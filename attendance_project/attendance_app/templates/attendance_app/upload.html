@@ -1,0 +1,47 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{% static 'images/z1.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(100, 71, 109, 0.63);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .btn {
+            background: blue;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Process CSV</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn" type="submit">Upload and Process</button>
+        </form>
+    </div>
+</body>
+</html>
