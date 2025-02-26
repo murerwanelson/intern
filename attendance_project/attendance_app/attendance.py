@@ -21,6 +21,13 @@ def process_attendance(file_path):
     columns_to_drop = ['Department', 'No.', 'Location ID', 'ID Number', 'VerifyCode', 'CardNo']
     df = df.drop(columns=[col for col in columns_to_drop if col in df.columns], errors='ignore')
 
+    # Convert 'Date/Time' column with mixed formats
+    df['Date/Time'] = pd.to_datetime(df['Date/Time'], dayfirst=True, errors='coerce', infer_datetime_format=True)
+
+    # Handle invalid dates by replacing NaT with a default datetime (optional)
+    df['Date/Time'].fillna(pd.Timestamp("2000-01-01 00:00"), inplace=True)
+
+
     # Extract Date and Time from 'Date/Time'
     df['Date'] = pd.to_datetime(df['Date/Time']).dt.date
     df['Time'] = pd.to_datetime(df['Date/Time']).dt.time
