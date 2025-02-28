@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(to bottom, #003366, #002244);
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 1000px;
+}
+
+h1 {
+    color: #003366;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #DDD;
+}
+
+th {
+    background: #003366;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+td {
+    background: #F5F5F5;
+    color: #003366;
+}
+
+tr:hover td {
+    background: #E0E0E0;
+}
+
+.btn {
+    background: #FF6600;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #E65C00;
+}
